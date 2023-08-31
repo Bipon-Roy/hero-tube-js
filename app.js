@@ -29,7 +29,8 @@ const displayCard = async (categoryId) => {
     cardsContainer.textContent = "";
 
     if (cardNumber.length > 0) {
-        cardsContainer.classList = "mx-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5";
+        cardsContainer.classList =
+            "mx-6 lg:mx-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5";
         cardNumber.forEach((cardInfo) => {
             console.log(cardInfo);
             const div = document.createElement("div");
@@ -82,7 +83,7 @@ const displayCard = async (categoryId) => {
                                   </defs>
                               </svg>
                           </div>
-                          <p class="text-[#171717B3] text-sm">${cardInfo.others.views}</p>
+                          <p class="text-[#171717B3] text-sm">${cardInfo.others.views} views</p>
                       </div>
                   </div>
               </div>
