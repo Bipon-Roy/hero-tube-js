@@ -1,3 +1,5 @@
+let categoryMain;
+
 const fetchCategory = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/categories");
     const data = await res.json();
@@ -19,19 +21,22 @@ const fetchCategory = async () => {
 };
 
 const displayCard = async (categoryId) => {
+    categoryMain = categoryId;
     const res = await fetch(
         `https://openapi.programming-hero.com/api/videos/category/${categoryId}`
     );
     const data = await res.json();
-    const cardNumber = data.data;
-    // console.log(data.data);
+    const cardList = data.data;
+    // const cardList = await sortCard(categoryId);
+    console.log(cardList);
     const cardsContainer = document.getElementById("card-container");
+
     cardsContainer.textContent = "";
 
-    if (cardNumber.length > 0) {
+    if (cardList.length > 0) {
         cardsContainer.classList =
             "mx-6 lg:mx-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5";
-        cardNumber.forEach((cardInfo) => {
+        cardList.forEach((cardInfo) => {
             const time = cardInfo.others.posted_date;
             const hours = Math.floor(time / 3600);
             const minutes = Math.floor((time - hours * 3600) / 60);
@@ -46,10 +51,10 @@ const displayCard = async (categoryId) => {
                   />
               </figure>
               <div class="card-body px-0 py-4">
-                  <div class="px-2 py-1 bg-[#171717] w-fit rounded-md absolute right-3 top-[160px]">
-                      <p class="text-white text-sm ${
-                          time ? "block" : "hidden"
-                      } ">${hours} hrs ${minutes} min ago</p>
+                  <div class="px-2 py-1 bg-[#171717] w-fit rounded-md absolute right-3 top-[160px] ${
+                      time ? "block" : "hidden"
+                  } ">
+                      <p class="text-white text-sm">${hours} hrs ${minutes} min ago</p>
                   </div>
                   <div class="flex gap-4">
                       <img
@@ -75,8 +80,88 @@ const displayCard = async (categoryId) => {
               </div>
           </div>`;
             cardsContainer.appendChild(div);
-            // const verified = cardInfo.authors[0].verified;
-            // console.log(verified);
+        });
+    } else {
+        cardsContainer.classList = "";
+        const div = document.createElement("div");
+        div.classList = "space-y-6 mt-36 flex items-center justify-center flex-col";
+        div.innerHTML = ` <img src="./images/Icon.png" alt="Icon" class="" />
+        <p class="text-[#171717] font-bold text-3xl text-center">
+            Oops!! Sorry, There is no <br />content here
+        </p>`;
+        cardsContainer.appendChild(div);
+    }
+};
+
+const sortCard = async (category) => {
+    const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${category}`);
+    const data = await res.json();
+    let newCardList = data.data;
+    newCardList.sort((a, b) => {
+        // Extract the numeric values from the "views" strings
+        const item1 = parseInt(a.others.views.replace("k", "000"), 10);
+        const item2 = parseInt(b.others.views.replace("k", "000"), 10);
+
+        // Compare in descending order
+        return item2 - item1;
+    });
+    return newCardList;
+};
+
+const sortedCardsList = async (categoryId) => {
+    const cardList = await sortCard(categoryId);
+    console.log(cardList);
+    const cardsContainer = document.getElementById("card-container");
+
+    cardsContainer.textContent = "";
+
+    if (cardList.length > 0) {
+        cardsContainer.classList =
+            "mx-6 lg:mx-0 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5";
+        cardList.forEach((cardInfo) => {
+            const time = cardInfo.others.posted_date;
+            const hours = Math.floor(time / 3600);
+            const minutes = Math.floor((time - hours * 3600) / 60);
+            const div = document.createElement("div");
+            div.innerHTML = `
+          <div class="card bg-base-100 mt-6">
+              <figure class="rounded-lg">
+                  <img
+                      src="${cardInfo.thumbnail}"
+                      class="w-full h-[200px]"
+                      alt="Thumbnail"
+                  />
+              </figure>
+              <div class="card-body px-0 py-4">
+                  <div class="px-2 py-1 bg-[#171717] w-fit rounded-md absolute right-3 top-[160px] ${
+                      time ? "block" : "hidden"
+                  } ">
+                      <p class="text-white text-sm">${hours} hrs ${minutes} min ago</p>
+                  </div>
+                  <div class="flex gap-4">
+                      <img
+                          src="${cardInfo.authors[0].profile_picture}"
+                          alt="Profile"
+                          class="rounded-full w-[45px] h-[45px]"
+                      />
+                      <div>
+                          <p class="text-base font-bold">
+                          ${cardInfo.title}
+                          </p>
+                          <div class="inline-flex gap-2">
+                              <p class="text-[#171717B3] text-sm">${
+                                  cardInfo.authors[0].profile_name
+                              }</p>
+                              <img src="./images/verified.png" alt="Verified Icon" class="${
+                                  cardInfo.authors[0].verified ? "inline-flex" : "hidden"
+                              }"/>
+                          </div>
+                          <p class="text-[#171717B3] text-sm">${cardInfo.others.views} views</p>
+                      </div>
+                  </div>
+              </div>
+          </div>`;
+            cardsContainer.appendChild(div);
         });
     } else {
         cardsContainer.classList = "";
