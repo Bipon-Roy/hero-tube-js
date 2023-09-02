@@ -4,18 +4,27 @@ const fetchCategory = async () => {
     const res = await fetch("https://openapi.programming-hero.com/api/videos/categories");
     const data = await res.json();
     const category = data.data;
-    // console.log(category[0].category);
     const catBtnContainer = document.getElementById("categoryBtn-container");
-    category.map((cat) => {
-        // console.log(cat);
+    let selectedBtn = null;
+    category.forEach((cat) => {
         const div = document.createElement("div");
-        div.innerHTML = `
-        <button
-           class="bg-secondary-gray px-4 md:px-5 py-2 rounded text-[#252525B3] text-sm md:text-base font-semibold cursor-pointer"
-           onclick="displayCard('${cat.category_id}')"
-           >
-           ${cat.category}
-        </button>`;
+        const btn = document.createElement("button");
+        btn.textContent = cat.category;
+        btn.classList =
+            "bg-secondary-gray px-4 md:px-5 py-2 rounded text-[#252525B3] text-sm md:text-base font-semibold cursor-pointer";
+        btn.id = `${cat.category_id}`;
+        btn.addEventListener("click", () => {
+            if (selectedBtn) {
+                selectedBtn.classList.remove("bg-main-color", "text-white");
+                selectedBtn.classList.add("bg-secondary-gray", "text-[#252525B3]");
+            }
+            btn.classList.remove("bg-secondary-gray", "text-[#252525B3]");
+            btn.classList.add("bg-main-color", "text-white");
+
+            selectedBtn = btn;
+            displayCard(cat.category_id);
+        });
+        div.appendChild(btn);
         catBtnContainer.appendChild(div);
     });
 };

@@ -43,12 +43,12 @@
                 <!-- Nav-Container -->
                 <div class="navbar pt-10 md:px-8 lg:px-0">
                     <div class="navbar-start">
-                        <div class="dropdown">
+                        <!-- <div class="dropdown">
                             <img src="./images/Logo.png" alt="Logo" class="" />
-                        </div>
+                        </div> -->
                     </div>
                     <div class="navbar-center ml-6 md:ml-0">
-                        <p class="text-2xl font-bold">
+                        <p class="text-4xl font-bold">
                             Welcome To <span class="text-main-color">Q/A </span>Section
                         </p>
                     </div>
@@ -64,6 +64,143 @@
             </nav>
             <div class="divider"></div>
         </header>
-        <main class="max-w-7xl mx-auto"></main>
+        <main class="max-w-7xl mx-auto">
+            <div class="mx-8">
+                <article class="my-4">
+                    <h1 class="text-3xl text-text-main font-semibold my-4">
+                        Discuss the scope of var, let, and const
+                    </h1>
+
+                    <ul class="ml-4">
+                        <li class="list-disc">
+                            The values of <strong>var</strong> and <strong>let</strong> variables
+                            can be reassigned another value.
+                        </li>
+                        <li class="list-disc">
+                            <strong>const</strong> creates "constant" variables that cannot be
+                            reassigned another value.
+                        </li>
+                    </ul>
+                    <h1 class="text-2xl font-bold my-4 text-main-color">var</h1>
+                    <ul class="ml-4">
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                    </ul>
+
+                    <h1 class="text-2xl font-bold my-4 text-main-color">let</h1>
+                    <ul class="ml-4">
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                    </ul>
+
+                    <h1 class="text-2xl font-bold my-4 text-main-color">const</h1>
+                    <ul class="ml-4">
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                        <li class="list-disc"></li>
+                    </ul>
+                </article>
+
+                <div class="my-4">
+                    <h1 class="text-3xl text-text-main font-semibold my-4">
+                        Tell us the use cases of null and undefined
+                    </h1>
+                    <article>
+                        <ul class="ml-4">
+                            <li class="list-disc">
+                                In JavaScript, null and undefined data types may appear similar when
+                                viewed at an abstract level. As a result, developers often need
+                                clarification and help when debugging errors related to these two
+                                values.
+                            </li>
+                            <li class="list-disc">
+                                JavaScript always assigns undefined to indicate the absence of a
+                                value by default, and it never automatically assigns null as a
+                                value. A variable will only return null if a programmer or an API
+                                specifically assigns the value null to the variable.
+                            </li>
+                        </ul>
+                        <h1 class="text-2xl font-bold my-4 text-main-color">Undefined</h1>
+                        <ul class="ml-4">
+                            <li class="list-disc">
+                                undefined is a primitive value automatically assigned by JavaScript
+                                to indicate the unintentional absence of any object value.
+                            </li>
+                            <li class="list-disc">
+                                The typeof() operator returns undefined for an undefined variable.
+                            </li>
+                            <li class="list-disc">
+                                On performing arithmetic operations;It returns NaN on performing
+                                arithmetic operations.
+                            </li>
+                            <li class="list-disc">
+                                If there is no value assigned to the variable, it becomes undefined.
+                            </li>
+                        </ul>
+                    </article>
+
+                    <article>
+                        <h1 class="text-2xl font-bold my-4 text-main-color">Null</h1>
+                        <ul class="ml-4">
+                            <li class="list-disc">
+                                The primitive type null indicates the intentional absence of a
+                                value. Therefore, in JavaScript, programmers often assign null to a
+                                variable to denote that the variable is declared and initialized and
+                                currently doesn't hold a value.
+                            </li>
+                            <li class="list-disc">
+                                The typeof() operator returns the type as an object for a variable
+                                whose value is assigned as null.
+                            </li>
+                            <li class="list-disc">
+                                On performing arithmetic operations;converts to 0 then perform the
+                                operation.
+                            </li>
+                            <li class="list-disc">A variables value can be assigned as null.</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <article class="my-8 space-y-4">
+                    <h1 class="text-3xl text-text-main font-semibold my-4">
+                        What do you mean by REST API?
+                    </h1>
+                    <p>
+                        An API, or application programming interface, is a set of rules that define
+                        how applications or devices can connect to and communicate with each other.
+                        A REST API is an API that conforms to the design principles of the REST, or
+                        representational state transfer architectural style. For this reason, REST
+                        APIs are sometimes referred to RESTful APIs.
+                    </p>
+                    <p>
+                        REST APIs communicate via HTTP requests to perform standard database
+                        functions like creating, reading, updating, and deleting records (also known
+                        as CRUD) within a resource. For example, a REST API would use a GET request
+                        to retrieve a record, a POST request to create one, a PUT request to update
+                        a record, and a DELETE request to delete one. All HTTP methods can be used
+                        in API calls. A well-designed REST API is similar to a website running in a
+                        web browser with built-in HTTP functionality.
+                    </p>
+                    <p>
+                        Representational State Transfer (REST) is an architectural style that
+                        defines a set of constraints to be used for creating web services. REST API
+                        is a way of accessing web services in a simple and flexible way without
+                        having any processing.
+                    </p>
+                    <p>
+                        <strong>Working:</strong> A request is sent from client to server in the
+                        form of a web URL as HTTP GET or POST or PUT or DELETE request. After that,
+                        a response comes back from the server in the form of a resource which can be
+                        anything like HTML, XML, Image, or JSON. But now JSON is the most popular
+                        format being used in Web Services.
+                    </p>
+                </article>
+            </div>
+        </main>
     </body>
 </html>
