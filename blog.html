@@ -71,7 +71,7 @@
                         Discuss the scope of var, let, and const
                     </h1>
 
-                    <ul class="ml-4">
+                    <ul class="ml-4 lg:ml-8">
                         <li class="list-disc">
                             The values of <strong>var</strong> and <strong>let</strong> variables
                             can be reassigned another value.
@@ -82,27 +82,51 @@
                         </li>
                     </ul>
                     <h1 class="text-2xl font-bold my-4 text-main-color">var</h1>
-                    <ul class="ml-4">
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
+                    <ul class="ml-4 lg:ml-8">
+                        <li class="list-disc">
+                            The scope is global when a var variable is declared outside a function.
+                            This means that any variable that is declared with var outside a
+                            function block is available for use in the whole window.
+                        </li>
+                        <li class="list-disc">
+                            var is function scoped when it is declared within a function. This means
+                            that it is available and can be accessed only within that function.
+                        </li>
+                        <li class="list-disc">var variables can be re-declared and updated</li>
                     </ul>
 
                     <h1 class="text-2xl font-bold my-4 text-main-color">let</h1>
-                    <ul class="ml-4">
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
+                    <ul class="ml-4 lg:ml-8">
+                        <li class="list-disc">
+                            let is block scoped; A block is a chunk of code bounded by {}. A block
+                            lives in curly braces. Anything within curly braces is a block.
+                        </li>
+                        <li class="list-disc">
+                            variable declared in a block with let is only available for use within
+                            that block.
+                        </li>
+                        <li class="list-disc">
+                            let can be updated within its scope. Unlike var, a let variable cannot
+                            be re-declared within its scope.
+                        </li>
                     </ul>
 
                     <h1 class="text-2xl font-bold my-4 text-main-color">const</h1>
-                    <ul class="ml-4">
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
-                        <li class="list-disc"></li>
+                    <ul class="ml-4 lg:ml-8">
+                        <li class="list-disc">const variables are block scoped</li>
+                        <li class="list-disc">
+                            const variables can only be accessed within the block they were
+                            declared.
+                        </li>
+                        <li class="list-disc">
+                            const remains the same within its scope. It cannot be updated or
+                            re-declared.This behavior is somehow different when it comes to objects
+                            declared with const
+                        </li>
+                        <li class="list-disc">
+                            a const object cannot be updated, but the properties of this objects can
+                            be updated.
+                        </li>
                     </ul>
                 </article>
 
@@ -111,7 +135,7 @@
                         Tell us the use cases of null and undefined
                     </h1>
                     <article>
-                        <ul class="ml-4">
+                        <ul class="ml-4 lg:ml-8">
                             <li class="list-disc">
                                 In JavaScript, null and undefined data types may appear similar when
                                 viewed at an abstract level. As a result, developers often need
@@ -126,7 +150,7 @@
                             </li>
                         </ul>
                         <h1 class="text-2xl font-bold my-4 text-main-color">Undefined</h1>
-                        <ul class="ml-4">
+                        <ul class="ml-4 lg:ml-8">
                             <li class="list-disc">
                                 undefined is a primitive value automatically assigned by JavaScript
                                 to indicate the unintentional absence of any object value.
@@ -146,7 +170,7 @@
 
                     <article>
                         <h1 class="text-2xl font-bold my-4 text-main-color">Null</h1>
-                        <ul class="ml-4">
+                        <ul class="ml-4 lg:ml-8">
                             <li class="list-disc">
                                 The primitive type null indicates the intentional absence of a
                                 value. Therefore, in JavaScript, programmers often assign null to a
