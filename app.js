@@ -36,8 +36,6 @@ const displayCard = async (categoryId) => {
     );
     const data = await res.json();
     const cardList = data.data;
-    // const cardList = await sortCard(categoryId);
-    console.log(cardList);
     const cardsContainer = document.getElementById("card-container");
 
     cardsContainer.textContent = "";
@@ -119,7 +117,6 @@ const sortCard = async (category) => {
 
 const sortedCardsList = async (categoryId) => {
     const cardList = await sortCard(categoryId);
-    console.log(cardList);
     const cardsContainer = document.getElementById("card-container");
 
     cardsContainer.textContent = "";
