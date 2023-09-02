@@ -11,7 +11,7 @@ const fetchCategory = async () => {
         const btn = document.createElement("button");
         btn.textContent = cat.category;
         btn.classList =
-            "bg-secondary-gray px-4 md:px-5 py-2 rounded text-[#252525B3] text-sm md:text-base font-semibold cursor-pointer";
+            "bg-secondary-gray px-4 md:px-5 py-2 rounded text-[#252525B3] text-sm md:text-base font-semibold cursor-pointer hover:bg-main-color hover:text-white";
         btn.id = `${cat.category_id}`;
         btn.addEventListener("click", () => {
             if (selectedBtn) {
